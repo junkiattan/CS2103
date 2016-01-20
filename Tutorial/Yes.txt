@@ -15,10 +15,10 @@
 15) As the user, I am able to update details of existing events to suit changes in schedules/needs.
 16) As a user, I should be able to delete completed tasks, for tasks that no longer needs to be tracked.
 17) As the user, to allow notifications to be sent directly, if need be, via email to PC or message to phone to provide a further level of notification for important tasks/deadlines.
-18)	As the user I can type in time in 12hr format and the program would recommend Am or Pm to prevent ambiguity.
-19)	As the user, to provide a visual representation of the tasks, for example in a form of colour coded calendar in order to give user an overall picture of schedule and workload.
-20)	As a new user, a menu detailing commands should be available in order to allow me to familiarise with the command lines in the program.
-21)	As the user, to be able to move the tasks in any of the local folders in the computer, be it a simple folder or a cloud syncing service to increase the accessibility of the task.
-22)	As the user, I can export to CSV if I am changing computer.
-23)	As the user, there should be a search function available to allow me to scan through the list of existing events to determine workload or to find specific tasks/events.
-24)	As the user, to have the program automatically sync across multiple platforms upon receiving internet connection to allow tasks to be updated in one platform (eg mobile) then reflected in another platform (eg pc).
+18) As the user I can type in time in 12hr format and the program would recommend Am or Pm to prevent ambiguity.
+19) As the user, to provide a visual representation of the tasks, for example in a form of colour coded calendar in order to give user an overall picture of schedule and workload.
+20) As a new user, a menu detailing commands should be available in order to allow me to familiarise with the command lines in the program.
+21) As the user, to be able to move the tasks in any of the local folders in the computer, be it a simple folder or a cloud syncing service to increase the accessibility of the task.
+22) As the user, I can export to CSV if I am changing computer.
+23) As the user, there should be a search function available to allow me to scan through the list of existing events to determine workload or to find specific tasks/events.
+24) As the user, to have the program automatically sync across multiple platforms upon receiving internet connection to allow tasks to be updated in one platform (eg mobile) then reflected in another platform (eg pc).
