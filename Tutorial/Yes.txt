@@ -5,3 +5,13 @@
 5) As a user, I would like to have a colour indicator to allow me to prioritise my task
 6) As the user, I can spell something wrongly and the program prompts recommended suggestions (Auto-correct), to reduce mistakes caused by typing errors
 7) As the user, to be able to send the to-do list from mobile to pc and back, such that when I am offline, I can still access and make changes to the to-do list
+8) As a user, I can archive tasks so that important tasks can be referred to in the future.
+9) As the user, I have a user interface with a menu for aesthetic purposes.
+10) As the user, I can rename keywords for commands to make it more intuitive.
+11) As the user, for the programme to be able to automatically highlight the next important task after the higher-priority tasks have been completed(goes hand-in-hand with task categorisation)
+12) As the user, the names given for command lines should be intuitive and easy to comprehend so as to facilitate smmoth usage.
+13) As the user, I should be able to specify a range of timings for the appointment/event/deadline, in case the event is projected to last for a duration.
+14) As the user, I can add a task by specifying a task description, so I can track tasks to be done.
+15) As the user, I am able to update details of existing events to suit changes in schedules/needs.
+16) As a user, I should be able to delete completed tasks, for tasks that no longer needs to be tracked.
+17) As the user, to allow notifications to be sent directly, if need be, via email to PC or message to phone to provide a further level of notification for important tasks/deadlines.
