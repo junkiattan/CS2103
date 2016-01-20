@@ -1,0 +1,7 @@
+1) As the user I can press 'Tab' to auto complete to speed up typing
+2) As a user, I can mark tasks as done so that I can review things I've done and keep a record
+3) As the user, I require credentials to login for security sake
+4) As a user, I can create a list of tasks I often need to complete and create a "shortcut key" to the tasks
+5) As a user, I would like to have a colour indicator to allow me to prioritise my task
+6) As the user, I can spell something wrongly and the program prompts recommended suggestions (Auto-correct), to reduce mistakes caused by typing errors
+7) As the user, to be able to send the to-do list from mobile to pc and back, such that when I am offline, I can still access and make changes to the to-do list

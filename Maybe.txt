@@ -1,0 +1,4 @@
+1) As the user I can set task recurrence based on days of the week, fortnightly, monthly or annually
+2) As a user, I can generate a list of options of tasks to do so
+3) As a user, I can specify or not specify the date in which the task the task should be completed
+4) As the user, to be able to set aside multiple blocks of time to activities whose exact timings are not yet stated, to allow it to be specified in the future
