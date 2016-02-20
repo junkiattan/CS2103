@@ -14,6 +14,25 @@ import java.io.PrintWriter;
  * @author Tan Jun Kiat
  *
  */
+// below class is to separate the handling of user input/output in order to avoid global declaration of Scanner
+class IO{
+	private static Scanner sc = null;
+	private IO(){
+	};
+	public static Scanner getSystemScanner(){
+		if (sc == null){
+			sc = new Scanner(System.in);
+		}
+		return sc;
+	}
+	public static String getNextLine(){
+		return getSystemScanner().nextLine();
+	}
+	
+	
+	//public static PrintWriter get
+}
+
 public class TextBuddy {
 	
 	private static final String MESSAGE_WELCOME = "Welcome to TextBuddy. %1$s is ready for use\n";
@@ -24,11 +43,12 @@ public class TextBuddy {
 	private static final String MESSAGE_CLEAR = "all content deleted from %1$s\n";
 	private static final String MESSAGE_INVALID = "Invalid command\n";
 	private static final String MESSAGE_INVALID_DELETE = "Item does not exist or has already been deleted\n";
+	private static ArrayList<String> stringStorage;
 	
 	public static void main(String args[]) throws FileNotFoundException{ // args[0] is the filename
 		mainMessagePrinter(welcomeMessage(args));
-		Scanner sc = new Scanner(System.in);
-		ArrayList<String> stringStorage = new ArrayList<String>();
+		
+		stringStorage = new ArrayList<String>();
 		
 		File userFile = new File(args[0]);
 		PrintWriter printWriter = null;
@@ -37,7 +57,7 @@ public class TextBuddy {
 		} catch (FileNotFoundException e) {}
 		
 		while (true){	
-			modifyInput(args, sc, stringStorage, userFile, printWriter);
+			modifyInput(args, userFile, printWriter);
 		}
 	}
 	
@@ -50,9 +70,9 @@ public class TextBuddy {
 		return printSentence;
 	}
 
-	private static void modifyInput(String[] args, Scanner sc, ArrayList<String> stringStorage, File userFile,
+	private static void modifyInput(String[] args, File userFile,
 			PrintWriter printWriter) throws FileNotFoundException {
-		String[] input = sc.nextLine().split(" ");
+		String[] input = IO.getNextLine().split(" ");
 		switch (input[0])
 		{
 		case "add":
