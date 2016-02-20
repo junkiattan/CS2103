@@ -46,9 +46,12 @@ public class TextBuddy {
 	private static final String MESSAGE_EMPTY = "%1$s is empty\n";
 	private static final String MESSAGE_ADD = "added to %1$s: \"%2$s\"\n";
 	private static final String MESSAGE_CLEAR = "all content deleted from %1$s\n";
+	private static final String MESSAGE_SORT = "List is now sorted\n";
 	private static final String MESSAGE_INVALID = "Invalid command\n";
 	private static final String MESSAGE_INVALID_DELETE = "Item does not exist or has already been deleted\n";
-	//private static final String MESSAGE_INVALID_SORT = "List cannot be sorted\n";
+	private static final String MESSAGE_INVALID_SORT_EMPTY = "List cannot be sorted as it is empty\n";
+	private static final String MESSAGE_INVALID_SEARCH_EMPTY = "List cannot be searched as it is empty\n";
+	private static final String MESSAGE_SEARCH_EMPTY = "No line with such a word exists\n";
 	
 	private static ArrayList<String> stringStorage = new ArrayList<String>();
 	
@@ -111,6 +114,12 @@ public class TextBuddy {
 		case "clear":
 			mainMessagePrinter(clear(fileName));
 			break;
+		case "sort":
+			mainMessagePrinter(sort(fileName));
+			break;
+		case "search":
+			mainMessagePrinter(search(fileName, input));
+			break;
 		case "exit":
 			System.exit(0);
 		default:
@@ -123,11 +132,16 @@ public class TextBuddy {
 	//to be written
 	// Post: data to be written into file, feedback in form of String is returned
 	public static String add(String fileName, String[] input) {
-		// adds the text to the file
-		String sentence = convertToString(input);
-		stringStorage.add(sentence);
-		fileEditor(fileName, sentence);
-		return String.format(MESSAGE_ADD, fileName, sentence);
+		if (input.length == 1){
+			// takes care of null input values
+			return MESSAGE_INVALID;
+		} else {
+			// adds the text to the file
+			String sentence = convertToString(input);
+			stringStorage.add(sentence);
+			fileEditor(fileName, sentence);
+			return String.format(MESSAGE_ADD, fileName, sentence);
+		}
 	}
 
 	// Pre: String fileName specifies the file to be read
@@ -158,6 +172,7 @@ public class TextBuddy {
 		if (numOfRemovable == 0 || numOfRemovable > stringStorage.size()){
 			return MESSAGE_INVALID_DELETE;
 		} else if (numOfRemovable == -1){
+			// takes care of null input values
 			return MESSAGE_INVALID;
 		} else {
 			String word = stringStorage.remove(numOfRemovable-1);
@@ -171,7 +186,7 @@ public class TextBuddy {
 		}
 	}
 
-	//Pre: Strind fileName of the desired file to be cleared
+	//Pre: String fileName of the desired file to be cleared
 	// Post: Returns String feedback to indicate successful clearing of desired file
 	public static String clear(String fileName) {
 		// clear the content from the text file
@@ -210,9 +225,46 @@ public class TextBuddy {
 		return sentence;
 	}
 	
-	//
-	public static void sortLines(String fileName){
-		
+	// Pre: String name of the file to be sorted
+	// Post: returns a string which is the feedback of the outcome of the operation
+	public static String sort(String fileName){
+		if (stringStorage.isEmpty()){
+			return MESSAGE_INVALID_SORT_EMPTY;
+		} else {
+			// use Collections.sort(arrayList) to sort the stringStorage
+			Collections.sort(stringStorage);
+			// then sort the actual file by overriding it, then adding the elements from stringStorage back to the desired file
+			fileEditor(fileName, "");
+			for (String line: stringStorage){
+				fileEditor(fileName, line);
+			}
+			return MESSAGE_SORT;
+		}
 	}
 	
+	// Pre: String name of the file to be searched and string array containing the input
+	// Post: returns an arrayList which either contains feedback or the actual words in the list that contains the specific word
+	public static ArrayList<String> search(String fileName, String[] input){
+		ArrayList<String> resultStorage = new ArrayList<String>();
+		if (stringStorage.isEmpty()){
+			resultStorage.add(MESSAGE_INVALID_SEARCH_EMPTY);
+			return resultStorage;
+		} else if (input.length == 1){
+			// check for null input values
+			resultStorage.add(MESSAGE_INVALID);
+			return resultStorage;
+		} else {
+			int step = 1;
+			for (int i=0; i<stringStorage.size(); i++){
+				if (stringStorage.get(i).contains(input[1])){
+				resultStorage.add(String.format(MESSAGE_DISPLAY, step, stringStorage.get(i)));
+				step++;
+				}
+			}
+			if (resultStorage.isEmpty()){
+				resultStorage.add(MESSAGE_SEARCH_EMPTY);
+			}
+			return resultStorage;
+		}
+	}	
 }
